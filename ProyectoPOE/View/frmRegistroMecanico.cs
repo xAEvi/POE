@@ -16,5 +16,40 @@ namespace GestorMantenimientosTaller.View
         {
             InitializeComponent();
         }
+
+        private void btnGuardarMecanico_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbCorreoMecanico_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNombreMecanico_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtApellidoMecanico_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCedulaMecanico_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTelefonoMecanico_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCorreoMecanico_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
