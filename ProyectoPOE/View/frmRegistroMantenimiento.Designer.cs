@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            btnCancelar = new Button();
             groupBox5 = new GroupBox();
             rdbPreventivo = new RadioButton();
             rdbCorrectivo = new RadioButton();
@@ -70,6 +71,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(btnCancelar);
             groupBox1.Controls.Add(groupBox5);
             groupBox1.Controls.Add(btnEliminar);
             groupBox1.Controls.Add(btnBuscar);
@@ -96,6 +98,17 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Registro de mantenimiento";
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.Location = new Point(323, 441);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(81, 24);
+            btnCancelar.TabIndex = 25;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Visible = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // groupBox5
             // 
@@ -134,12 +147,14 @@
             // 
             // btnEliminar
             // 
+            btnEliminar.Enabled = false;
             btnEliminar.Location = new Point(624, 441);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(81, 24);
             btnEliminar.TabIndex = 21;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnBuscar
             // 
@@ -149,15 +164,18 @@
             btnBuscar.TabIndex = 20;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // btnGuardar
             // 
+            btnGuardar.Enabled = false;
             btnGuardar.Location = new Point(424, 441);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(81, 24);
             btnGuardar.TabIndex = 19;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = true;
+            btnGuardar.Click += Guardar_Click;
             // 
             // btnNuevo
             // 
@@ -167,6 +185,7 @@
             btnNuevo.TabIndex = 18;
             btnNuevo.Text = "Nuevo";
             btnNuevo.UseVisualStyleBackColor = true;
+            btnNuevo.Click += btnNuevo_Click;
             // 
             // repuestosBox
             // 
@@ -443,5 +462,6 @@
         private GroupBox groupBox5;
         private RadioButton rdbPreventivo;
         private RadioButton rdbCorrectivo;
+        private Button btnCancelar;
     }
 }
