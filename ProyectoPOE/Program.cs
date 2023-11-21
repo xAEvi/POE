@@ -15,7 +15,7 @@ namespace WinFormsApp1
             ControllerMantenimiento mantenimientos = new ControllerMantenimiento();
 
             ApplicationConfiguration.Initialize();
-            Application.Run(new frmMain());
+            Application.Run(new frmMain(clientes, mecanicos, mantenimientos));
         }
     }
 }

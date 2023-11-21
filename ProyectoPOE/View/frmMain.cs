@@ -1,3 +1,4 @@
+using frmMain.Controller;
 using GestorMantenimientosTaller.View;
 using ProyectoPOE.View;
 
@@ -5,8 +6,14 @@ namespace WinFormsApp1
 {
     public partial class frmMain : Form
     {
-        public frmMain()
+        ControllerCliente clientes;
+        ControllerMecanico mecanicos;
+        ControllerMantenimiento mantenimientos;
+        public frmMain(ControllerCliente clientes, ControllerMecanico mecanicos, ControllerMantenimiento mantenimientos)
         {
+            this.clientes = clientes;
+            this.mecanicos = mecanicos;
+            this.mantenimientos = mantenimientos;
             InitializeComponent();
         }
 
@@ -31,7 +38,7 @@ namespace WinFormsApp1
 
         private void nuevoMantenimientoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmRegistroMantenimiento formulario = new frmRegistroMantenimiento();
+            frmRegistroMantenimiento formulario = new frmRegistroMantenimiento(clientes, mecanicos, mantenimientos);
             formulario.Show();
         }
     }
