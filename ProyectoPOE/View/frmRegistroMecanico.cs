@@ -1,4 +1,6 @@
-﻿using System;
+﻿using frmMain.Controller;
+using frmMain.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +14,12 @@ namespace GestorMantenimientosTaller.View
 {
     public partial class frmRegistroMecanico : Form
     {
-        public frmRegistroMecanico()
+        bool banderanuevo = false;
+        Mecanico mecanicoEncontrado;
+        ControllerMecanico mecanico_handler;
+        public frmRegistroMecanico(ControllerMecanico mecanicos)
         {
+            mecanico_handler = mecanicos;
             InitializeComponent();
         }
 

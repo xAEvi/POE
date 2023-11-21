@@ -4,7 +4,7 @@ using System;
 
 namespace frmMain.Controller
 {
-    internal class ControllerCliente : ICRUDController<Cliente>
+    public class ControllerCliente : ICRUDController<Cliente>
     {
         private List<Cliente> ListaCliente;
         public ControllerCliente()
