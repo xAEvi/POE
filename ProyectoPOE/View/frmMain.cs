@@ -26,13 +26,13 @@ namespace WinFormsApp1
 
         private void registrarClienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmRegistroCliente formulario = new frmRegistroCliente();
+            frmRegistroCliente formulario = new frmRegistroCliente(clientes);
             formulario.Show();
         }
 
         private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmRegistroMecanico formulario = new frmRegistroMecanico();
+            frmRegistroMecanico formulario = new frmRegistroMecanico(mecanicos);
             formulario.Show();
         }
 
