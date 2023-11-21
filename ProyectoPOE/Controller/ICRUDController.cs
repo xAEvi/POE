@@ -9,8 +9,9 @@ namespace ProyectoPOE.Controller
     public interface ICRUDController<T>
     {
         void Crear(T dato);
-        T Leer(string indice);
-        void Actualizar(string indice, T dato);
-        void Eliminar(string indice);
+        T Leer(string dato);
+        void Actualizar(string dato, T objeto);
+        void Eliminar(string dato);
+        int GetIndice(string indice);
     }
 }

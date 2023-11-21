@@ -20,11 +20,11 @@ namespace frmMain.Controller
 
         public Cliente Leer(string cedula)
         {
-            Cliente clienteEncontrado = ListaCliente.Find(c => c.Cedula == cedula);
+            int indice = GetIndice(cedula);
 
-            if (clienteEncontrado != null)
+            if (indice != -1)
             {
-                return clienteEncontrado;
+                return ListaCliente[indice];
             }
             else
             {
@@ -34,12 +34,12 @@ namespace frmMain.Controller
 
         public void Actualizar(string cedula, Cliente nuevoDato)
         {
-            Cliente clienteEncontrado = Leer(cedula);
+            int indice = GetIndice(cedula);
 
-            if (clienteEncontrado != null)
+            if (indice != -1)
             {
-                clienteEncontrado = nuevoDato;
-                MessageBox.Show("Cliente actualizado con éxito.");
+                ListaCliente[indice] = nuevoDato;
+                MessageBox.Show("Cliente ha sido actualizado.");
             } 
             else
             {
@@ -49,7 +49,7 @@ namespace frmMain.Controller
 
         public void Eliminar(string cedula)
         {
-            int indice = ListaCliente.FindIndex(cliente => cliente.Cedula == cedula);
+            int indice = GetIndice(cedula);
 
             if (indice != -1)
             {
@@ -60,6 +60,10 @@ namespace frmMain.Controller
             {
                 MessageBox.Show("Cliente no encontrado.");
             }
+        }
+        public int GetIndice(string cedula)
+        {
+            return ListaCliente.FindIndex(cliente => cliente.Cedula == cedula);
         }
     }
 }
