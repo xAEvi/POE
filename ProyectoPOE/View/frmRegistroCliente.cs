@@ -148,6 +148,7 @@ namespace GestorMantenimientosTaller.View
 
                 ResetearBotones();
                 ReiniciarFormulario();
+                DeshabilitarCampos();
             }
         }
 

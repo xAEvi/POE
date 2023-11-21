@@ -329,7 +329,6 @@
             cmbMecanico.Name = "cmbMecanico";
             cmbMecanico.Size = new Size(271, 23);
             cmbMecanico.TabIndex = 7;
-            cmbMecanico.SelectedIndexChanged += cmbMecanico_SelectedIndexChanged;
             // 
             // label4
             // 
@@ -339,7 +338,6 @@
             label4.Size = new Size(62, 15);
             label4.TabIndex = 6;
             label4.Text = "Mecanico:";
-            label4.Click += label4_Click;
             // 
             // cmbCliente
             // 
@@ -398,6 +396,7 @@
             Controls.Add(groupBox1);
             Name = "frmRegistroMantenimiento";
             Text = "frmRegistroMantenimiento";
+            Load += frmRegistroMantenimiento_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox5.ResumeLayout(false);

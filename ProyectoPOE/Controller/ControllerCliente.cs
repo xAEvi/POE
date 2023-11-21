@@ -12,6 +12,11 @@ namespace frmMain.Controller
             ListaCliente = new List<Cliente>();
         }
 
+        public List<Cliente> GetClientes()
+        {
+            return ListaCliente;
+        }
+
         public void Crear(Cliente dato)
         {
             ListaCliente.Add(dato);

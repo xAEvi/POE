@@ -28,18 +28,24 @@ namespace GestorMantenimientosTaller.View
             InitializeComponent();
         }
 
-        private void rdbCorrectivo_CheckedChanged(object sender, EventArgs e)
+        private void frmRegistroMantenimiento_Load(object sender, EventArgs e)
         {
-
+            CargarClientes();
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void CargarClientes()
         {
+            cmbCliente.DataSource = clientes.GetClientes();
+            cmbCliente.DisplayMember = "Nombres";
+            cmbCliente.ValueMember = "Cedula";
 
-        }
-
-        private void cmbMecanico_SelectedIndexChanged(object sender, EventArgs e)
-        {
+            cmbCliente.Format += (sender, e) =>
+            {
+                if (e.ListItem is Cliente cliente)
+                {
+                    e.Value = $"{cliente.Apellidos} {cliente.Nombres}";
+                }
+            };
         }
     }
 }
