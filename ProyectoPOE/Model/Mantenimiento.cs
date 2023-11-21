@@ -2,7 +2,7 @@
 {
     public class Mantenimiento
     {
-        int codigo;
+        string codigo;
         Cliente cliente;
         Mecanico mecanico;
         DateTime fechamant;
@@ -13,7 +13,7 @@
         Repuesto[] repuestos;
         Servicio[] servicios;
 
-        public Mantenimiento(int codigo, Cliente cliente, Mecanico mecanico, DateTime fechamant, Vehiculo vehiculo, string diagnostico, string trabajos, bool escorrectivo, Repuesto[] repuestos, Servicio[] servicios)
+        public Mantenimiento(string codigo, Cliente cliente, Mecanico mecanico, DateTime fechamant, Vehiculo vehiculo, string diagnostico, string trabajos, bool escorrectivo, Repuesto[] repuestos, Servicio[] servicios)
         {
             this.codigo = codigo;
             this.cliente = cliente;
@@ -26,7 +26,7 @@
             this.repuestos = repuestos;
             this.servicios = servicios;
         }
-        public int Codigo
+        public string Codigo
         {
             get { return codigo; }
             set { codigo = value; }
