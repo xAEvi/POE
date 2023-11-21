@@ -67,7 +67,7 @@
             txtNombreMecanico.ReadOnly = true;
             txtNombreMecanico.Size = new Size(191, 23);
             txtNombreMecanico.TabIndex = 1;
-            txtNombreMecanico.KeyPress += soloLetras;
+            txtNombreMecanico.KeyPress += soloAlfabeto;
             // 
             // txtApellidoMecanico
             // 
@@ -77,7 +77,7 @@
             txtApellidoMecanico.ReadOnly = true;
             txtApellidoMecanico.Size = new Size(204, 23);
             txtApellidoMecanico.TabIndex = 2;
-            txtApellidoMecanico.KeyPress += soloLetras;
+            txtApellidoMecanico.KeyPress += soloAlfabeto;
             // 
             // lbApellidoMecanico
             // 

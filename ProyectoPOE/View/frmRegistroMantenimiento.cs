@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsApp1;
 
 namespace GestorMantenimientosTaller.View
 {
@@ -25,15 +26,18 @@ namespace GestorMantenimientosTaller.View
             this.clientes = clientes;
             this.mecanicos = mecanicos;
             this.mantenimientos = mantenimientos;
+            
             InitializeComponent();
+
+            CargarClientes();
+            CargarMecanicos();
+            // CargarServicios();
+            // CargarRespuestos();
         }
 
         private void frmRegistroMantenimiento_Load(object sender, EventArgs e)
         {
-            CargarClientes();
-            CargarMecanicos();
-            CargarServicios();
-            CargarRespuestos();
+
         }
 
         private void CargarServicios()
@@ -50,34 +54,18 @@ namespace GestorMantenimientosTaller.View
 
         private void CargarClientes()
         {
-            cmbCliente.DataSource = clientes.GetClientes();
-            cmbCliente.DisplayMember = "Nombres";
-            cmbCliente.ValueMember = "Cedula";
-
-            cmbCliente.Format += (sender, e) =>
+            foreach(Cliente cliente in clientes.GetClientes())
             {
-                if (e.ListItem is Cliente cliente)
-                {
-                    e.Value = $"{cliente.Apellidos} {cliente.Nombres}";
-                }
-            };
+                cmbCliente.Items.Add(cliente);
+            }
         }
 
         private void CargarMecanicos()
         {
-            
-            cmbCliente.DataSource = mecanicos.GetMecanicos();
-            cmbCliente.DisplayMember = "Nombres";
-            cmbCliente.ValueMember = "Cedula";
-
-            cmbCliente.Format += (sender, e) =>
+            foreach (Mecanico mecanico in mecanicos.GetMecanicos())
             {
-                if (e.ListItem is Mecanico mecanico)
-                {
-                    e.Value = $"{mecanico.Apellidos} {mecanico.Nombres}";
-                }
-            };
-            
+                cmbMecanico.Items.Add(mecanico);
+            }
         }
 
         private void ReiniciarFormulario()

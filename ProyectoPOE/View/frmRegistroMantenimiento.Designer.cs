@@ -56,12 +56,12 @@
             label5 = new Label();
             cmbMecanico = new ComboBox();
             label4 = new Label();
-            cmbCliente = new ComboBox();
             label3 = new Label();
             txtId = new TextBox();
             dtpFecha = new DateTimePicker();
             label2 = new Label();
             label1 = new Label();
+            cmbCliente = new ComboBox();
             groupBox1.SuspendLayout();
             groupBox5.SuspendLayout();
             repuestosBox.SuspendLayout();
@@ -71,6 +71,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(cmbCliente);
             groupBox1.Controls.Add(btnCancelar);
             groupBox1.Controls.Add(groupBox5);
             groupBox1.Controls.Add(btnEliminar);
@@ -86,7 +87,6 @@
             groupBox1.Controls.Add(groupBox2);
             groupBox1.Controls.Add(cmbMecanico);
             groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(cmbCliente);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(txtId);
             groupBox1.Controls.Add(dtpFecha);
@@ -358,14 +358,6 @@
             label4.TabIndex = 6;
             label4.Text = "Mecanico:";
             // 
-            // cmbCliente
-            // 
-            cmbCliente.FormattingEnabled = true;
-            cmbCliente.Location = new Point(105, 70);
-            cmbCliente.Name = "cmbCliente";
-            cmbCliente.Size = new Size(271, 23);
-            cmbCliente.TabIndex = 5;
-            // 
             // label3
             // 
             label3.AutoSize = true;
@@ -407,6 +399,14 @@
             label1.TabIndex = 0;
             label1.Text = "Id:";
             // 
+            // cmbCliente
+            // 
+            cmbCliente.FormattingEnabled = true;
+            cmbCliente.Location = new Point(108, 71);
+            cmbCliente.Name = "cmbCliente";
+            cmbCliente.Size = new Size(268, 23);
+            cmbCliente.TabIndex = 26;
+            // 
             // frmRegistroMantenimiento
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -433,7 +433,6 @@
         private Label label1;
         private ComboBox cmbMecanico;
         private Label label4;
-        private ComboBox cmbCliente;
         private Label label3;
         private TextBox txtId;
         private DateTimePicker dtpFecha;
@@ -463,5 +462,6 @@
         private RadioButton rdbPreventivo;
         private RadioButton rdbCorrectivo;
         private Button btnCancelar;
+        private ComboBox cmbCliente;
     }
 }

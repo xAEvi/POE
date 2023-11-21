@@ -12,5 +12,10 @@
             Nombres = nombres;
             Cedula = cedula;
         }
+
+        public override string ToString()
+        {
+            return $"{Apellidos} {Nombres}";
+        }
     }
 }
