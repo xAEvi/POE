@@ -1,4 +1,5 @@
 ﻿using frmMain.Controller;
+using frmMain.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,9 @@ namespace GestorMantenimientosTaller.View
         ControllerCliente clientes;
         ControllerMecanico mecanicos;
         ControllerMantenimiento mantenimientos;
+        bool banderanuevo = false;
+        Mantenimiento clienteEncontrado;
+        ControllerMantenimiento manteniemiento_handler;
         public frmRegistroMantenimiento(ControllerCliente clientes, ControllerMecanico mecanicos, ControllerMantenimiento mantenimientos)
         {
             this.clientes = clientes;
