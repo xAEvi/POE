@@ -5,7 +5,7 @@ namespace frmMain.Controller
     internal class ControllerCliente
     {
         private List<Cliente> ListaCliente;
-        private ControllerCliente()
+        public ControllerCliente()
         {
             ListaCliente = new List<Cliente>();
         }

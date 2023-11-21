@@ -51,5 +51,10 @@ namespace GestorMantenimientosTaller.View
         {
 
         }
+
+        private void btnGuardarMecanico_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
