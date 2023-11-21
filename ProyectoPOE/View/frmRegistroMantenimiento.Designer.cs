@@ -36,7 +36,7 @@
             btnBuscar = new Button();
             btnGuardar = new Button();
             btnNuevo = new Button();
-            groupBox4 = new GroupBox();
+            repuestosBox = new GroupBox();
             clbRepuestos = new CheckedListBox();
             groupBox3 = new GroupBox();
             clbServicios = new CheckedListBox();
@@ -63,7 +63,7 @@
             label1 = new Label();
             groupBox1.SuspendLayout();
             groupBox5.SuspendLayout();
-            groupBox4.SuspendLayout();
+            repuestosBox.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
@@ -75,7 +75,7 @@
             groupBox1.Controls.Add(btnBuscar);
             groupBox1.Controls.Add(btnGuardar);
             groupBox1.Controls.Add(btnNuevo);
-            groupBox1.Controls.Add(groupBox4);
+            groupBox1.Controls.Add(repuestosBox);
             groupBox1.Controls.Add(groupBox3);
             groupBox1.Controls.Add(rtbTrabajo);
             groupBox1.Controls.Add(label10);
@@ -118,6 +118,7 @@
             rdbPreventivo.TabStop = true;
             rdbPreventivo.Text = "Preventivo";
             rdbPreventivo.UseVisualStyleBackColor = true;
+            rdbPreventivo.CheckedChanged += rdbPreventivo_CheckedChanged;
             // 
             // rdbCorrectivo
             // 
@@ -129,6 +130,7 @@
             rdbCorrectivo.TabStop = true;
             rdbCorrectivo.Text = "Correctivo";
             rdbCorrectivo.UseVisualStyleBackColor = true;
+            rdbCorrectivo.CheckedChanged += rdbCorrectivo_CheckedChanged;
             // 
             // btnEliminar
             // 
@@ -166,22 +168,21 @@
             btnNuevo.Text = "Nuevo";
             btnNuevo.UseVisualStyleBackColor = true;
             // 
-            // groupBox4
+            // repuestosBox
             // 
-            groupBox4.Controls.Add(clbRepuestos);
-            groupBox4.Location = new Point(672, 265);
-            groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(322, 139);
-            groupBox4.TabIndex = 17;
-            groupBox4.TabStop = false;
-            groupBox4.Text = "Repuestos:";
-            groupBox4.Visible = false;
+            repuestosBox.Controls.Add(clbRepuestos);
+            repuestosBox.Location = new Point(672, 265);
+            repuestosBox.Name = "repuestosBox";
+            repuestosBox.Size = new Size(322, 139);
+            repuestosBox.TabIndex = 17;
+            repuestosBox.TabStop = false;
+            repuestosBox.Text = "Repuestos:";
+            repuestosBox.Visible = false;
             // 
             // clbRepuestos
             // 
             clbRepuestos.CheckOnClick = true;
             clbRepuestos.FormattingEnabled = true;
-            clbRepuestos.Items.AddRange(new object[] { "Repuesto 1", "Repuesto 2", "Repuesto 3", "Repuesto 4", "Repuesto 5", "Repuesto 6", "Repuesto 7", "Repuesto 8", "Repuesto 9", "Repuesto 10" });
             clbRepuestos.Location = new Point(11, 27);
             clbRepuestos.MultiColumn = true;
             clbRepuestos.Name = "clbRepuestos";
@@ -202,7 +203,6 @@
             // 
             clbServicios.CheckOnClick = true;
             clbServicios.FormattingEnabled = true;
-            clbServicios.Items.AddRange(new object[] { "Lavado", "Alineación", "Servicio 3", "Servicio 4", "Servicio 5" });
             clbServicios.Location = new Point(10, 27);
             clbServicios.Name = "clbServicios";
             clbServicios.Size = new Size(123, 148);
@@ -401,7 +401,7 @@
             groupBox1.PerformLayout();
             groupBox5.ResumeLayout(false);
             groupBox5.PerformLayout();
-            groupBox4.ResumeLayout(false);
+            repuestosBox.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
@@ -434,7 +434,7 @@
         private Label label10;
         private GroupBox groupBox3;
         private CheckedListBox clbServicios;
-        private GroupBox groupBox4;
+        private GroupBox repuestosBox;
         private CheckedListBox clbRepuestos;
         private Button btnEliminar;
         private Button btnBuscar;
