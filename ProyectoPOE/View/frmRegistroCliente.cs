@@ -62,6 +62,16 @@ namespace GestorMantenimientosTaller.View
 
         private void Guardar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
+                string.IsNullOrWhiteSpace(txtApellido.Text) ||
+                string.IsNullOrWhiteSpace(txtdireccion.Text) ||
+                string.IsNullOrWhiteSpace(txtCedula.Text) ||
+                string.IsNullOrWhiteSpace(txtTelefono.Text))
+            {
+                MessageBox.Show("Por favor, complete todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (banderanuevo)
             {
                 string nombres = txtNombre.Text;
@@ -142,9 +152,7 @@ namespace GestorMantenimientosTaller.View
         {
             if (MessageBox.Show("¿Desea eliminar este cliente?", "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                string cedula = txtCedula.Text;
-
-                cliente_handler.Eliminar(cedula);
+                cliente_handler.Eliminar(clienteEncontrado.Cedula);
 
                 ResetearBotones();
                 ReiniciarFormulario();
@@ -185,6 +193,7 @@ namespace GestorMantenimientosTaller.View
 
             ResetearBotones();
             ReiniciarFormulario();
+            DeshabilitarCampos();
             banderanuevo = false;
         }
     }

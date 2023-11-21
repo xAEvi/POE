@@ -65,7 +65,7 @@ namespace GestorMantenimientosTaller.View
 
         private void CargarMecanicos()
         {
-            /*
+            
             cmbCliente.DataSource = mecanicos.GetMecanicos();
             cmbCliente.DisplayMember = "Nombres";
             cmbCliente.ValueMember = "Cedula";
@@ -77,12 +77,12 @@ namespace GestorMantenimientosTaller.View
                     e.Value = $"{mecanico.Apellidos} {mecanico.Nombres}";
                 }
             };
-            */
+            
         }
 
         private void ReiniciarFormulario()
         {
-            /* Ejemplo
+            /* Ejemplo (Reiniciar otros elementos como debe ir)
             txtNombre.Text = string.Empty;
             txtApellido.Text = string.Empty;
             txtdireccion.Text = string.Empty;
@@ -93,7 +93,7 @@ namespace GestorMantenimientosTaller.View
 
         private void DeshabilitarCampos()
         {
-            /* Ejemplo (Solo debe quedar codigo para escribir)
+            /* Ejemplo (Solo debe quedar codigo para escribir), listas y otras cosas deben quedar enabled en false
             txtNombre.ReadOnly = true;
             txtApellido.ReadOnly = true;
             txtdireccion.ReadOnly = true;
@@ -104,7 +104,7 @@ namespace GestorMantenimientosTaller.View
 
         private void HabilitarCampos()
         {
-            /* Ejemplo
+            /* Ejemplo (Habilitar otros elementos con enabled)
             txtNombre.ReadOnly = false;
             txtApellido.ReadOnly = false;
             txtdireccion.ReadOnly = false;
@@ -250,6 +250,7 @@ namespace GestorMantenimientosTaller.View
 
             ResetearBotones();
             ReiniciarFormulario();
+            DeshabilitarCampos();
             banderanuevo = false;
         }
 
