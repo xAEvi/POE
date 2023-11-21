@@ -1,6 +1,6 @@
 ﻿namespace frmMain.Model
 {
-    internal class Mantenimiento
+    public class Mantenimiento
     {
         int codigo;
         Cliente cliente;

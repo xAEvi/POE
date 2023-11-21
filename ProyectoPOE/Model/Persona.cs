@@ -1,6 +1,6 @@
 ﻿namespace frmMain.Model
 {
-    internal abstract class Persona
+    public abstract class Persona
     {
         public string Apellidos { get; set; }
         public string Nombres { get; set; }

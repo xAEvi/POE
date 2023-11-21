@@ -2,10 +2,10 @@
 
 namespace frmMain.Controller
 {
-    internal class ControllerMantenimiento
+    public class ControllerMantenimiento
     {
         private List<Mantenimiento> ListaMantenimientos;
-        private ControllerMantenimiento()
+        public ControllerMantenimiento()
         {
             ListaMantenimientos = new List<Mantenimiento>();
         }

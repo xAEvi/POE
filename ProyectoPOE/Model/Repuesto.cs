@@ -1,6 +1,6 @@
 ﻿namespace frmMain.Model
 {
-    internal class Repuesto
+    public class Repuesto
     {
         public string Nombre { get; set; }
         public decimal Precio { get; set; }

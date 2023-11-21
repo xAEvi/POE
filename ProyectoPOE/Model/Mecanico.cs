@@ -1,6 +1,6 @@
 ﻿namespace frmMain.Model
 {
-    internal class Mecanico : Persona
+    public class Mecanico : Persona
     {
         public string Especialidad { get; set; }
         public string Jornada { get; set; }

@@ -1,6 +1,6 @@
 ﻿namespace frmMain.Model
 {
-    internal class Vehiculo
+    public class Vehiculo
     {
         public string Placa { get; set; }
         public string Marca { get; set; }
