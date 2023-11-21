@@ -71,9 +71,6 @@ namespace GestorMantenimientosTaller.View
                 Cliente objCliente = new Cliente(apellidos, nombres, cedula, direccion, telefono);
                 cliente_handler.Crear(objCliente);
 
-                ReiniciarFormulario();
-                DeshabilitarCampos();
-
                 banderanuevo = false;
                 btnNuevo.Visible = true;
                 btnCancelar.Visible = false;
@@ -88,9 +85,10 @@ namespace GestorMantenimientosTaller.View
                 Cliente clienteActualizado = new Cliente(apellidos, nombres, cedula, direccion, telefono);
 
                 cliente_handler.Actualizar(clienteEncontrado.Cedula, clienteActualizado);
-
-                ReiniciarFormulario();
             }
+
+            DeshabilitarCampos();
+            ReiniciarFormulario();
             ResetearBotones();
         }
 
