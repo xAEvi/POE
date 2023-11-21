@@ -1,6 +1,4 @@
-﻿using frmMain.Controller;
-using frmMain.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,12 +12,9 @@ namespace GestorMantenimientosTaller.View
 {
     public partial class frmRegistroMantenimiento : Form
     {
-        bool banderanuevo = false;
-        Cliente mantenimientoEncontrado;
-        ControllerMantenimiento mantenimiento_handler;
-        public frmRegistroMantenimiento(ControllerMantenimiento mantenimientos)
+        public frmRegistroMantenimiento()
         {
-            mantenimiento_handler = mantenimientos;
+            InitializeComponent();
         }
 
         private void rdbCorrectivo_CheckedChanged(object sender, EventArgs e)

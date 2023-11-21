@@ -19,3 +19,24 @@ C:\Users\xAEvi\OneDrive - Universidad de Guayaquil\5to Semestre\Programación Or
 C:\Users\xAEvi\OneDrive - Universidad de Guayaquil\5to Semestre\Programación Orientado a Eventos\Primer Parcial\Progrmas\ProyectoPOE\ProyectoPOE\obj\Debug\net6.0-windows\GestorMantenimientosTaller.View.frmRegistroMecanico.resources
 C:\Users\xAEvi\OneDrive - Universidad de Guayaquil\5to Semestre\Programación Orientado a Eventos\Primer Parcial\Progrmas\ProyectoPOE\ProyectoPOE\obj\Debug\net6.0-windows\ProyectoPOE.Properties.Resources.resources
 C:\Users\xAEvi\OneDrive - Universidad de Guayaquil\5to Semestre\Programación Orientado a Eventos\Primer Parcial\Progrmas\ProyectoPOE\ProyectoPOE\obj\Debug\net6.0-windows\ProyectoPOE.View.frmAcerca.resources
+C:\Users\xAEvi\Downloads\POE\ProyectoPOE\bin\Debug\net6.0-windows\ProyectoPOE.exe
+C:\Users\xAEvi\Downloads\POE\ProyectoPOE\bin\Debug\net6.0-windows\ProyectoPOE.deps.json
+C:\Users\xAEvi\Downloads\POE\ProyectoPOE\bin\Debug\net6.0-windows\ProyectoPOE.runtimeconfig.json
+C:\Users\xAEvi\Downloads\POE\ProyectoPOE\bin\Debug\net6.0-windows\ProyectoPOE.dll
+C:\Users\xAEvi\Downloads\POE\ProyectoPOE\bin\Debug\net6.0-windows\ProyectoPOE.pdb
+C:\Users\xAEvi\Downloads\POE\ProyectoPOE\obj\Debug\net6.0-windows\ProyectoPOE.Properties.Resources.resources
+C:\Users\xAEvi\Downloads\POE\ProyectoPOE\obj\Debug\net6.0-windows\ProyectoPOE.View.frmAcerca.resources
+C:\Users\xAEvi\Downloads\POE\ProyectoPOE\obj\Debug\net6.0-windows\WinFormsApp1.frmMain.resources
+C:\Users\xAEvi\Downloads\POE\ProyectoPOE\obj\Debug\net6.0-windows\GestorMantenimientosTaller.View.frmRegistroCliente.resources
+C:\Users\xAEvi\Downloads\POE\ProyectoPOE\obj\Debug\net6.0-windows\GestorMantenimientosTaller.View.frmRegistroMantenimiento.resources
+C:\Users\xAEvi\Downloads\POE\ProyectoPOE\obj\Debug\net6.0-windows\GestorMantenimientosTaller.View.frmRegistroMecanico.resources
+C:\Users\xAEvi\Downloads\POE\ProyectoPOE\obj\Debug\net6.0-windows\ProyectoPOE.csproj.GenerateResource.cache
+C:\Users\xAEvi\Downloads\POE\ProyectoPOE\obj\Debug\net6.0-windows\ProyectoPOE.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\xAEvi\Downloads\POE\ProyectoPOE\obj\Debug\net6.0-windows\ProyectoPOE.AssemblyInfoInputs.cache
+C:\Users\xAEvi\Downloads\POE\ProyectoPOE\obj\Debug\net6.0-windows\ProyectoPOE.AssemblyInfo.cs
+C:\Users\xAEvi\Downloads\POE\ProyectoPOE\obj\Debug\net6.0-windows\ProyectoPOE.csproj.CoreCompileInputs.cache
+C:\Users\xAEvi\Downloads\POE\ProyectoPOE\obj\Debug\net6.0-windows\ProyectoPOE.dll
+C:\Users\xAEvi\Downloads\POE\ProyectoPOE\obj\Debug\net6.0-windows\refint\ProyectoPOE.dll
+C:\Users\xAEvi\Downloads\POE\ProyectoPOE\obj\Debug\net6.0-windows\ProyectoPOE.pdb
+C:\Users\xAEvi\Downloads\POE\ProyectoPOE\obj\Debug\net6.0-windows\ProyectoPOE.genruntimeconfig.cache
+C:\Users\xAEvi\Downloads\POE\ProyectoPOE\obj\Debug\net6.0-windows\ref\ProyectoPOE.dll

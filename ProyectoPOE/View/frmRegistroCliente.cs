@@ -16,11 +16,10 @@ namespace GestorMantenimientosTaller.View
     {
         bool banderanuevo = false;
         Cliente clienteEncontrado;
-        ControllerCliente cliente_handler;
+        ControllerCliente cliente_handler = new ControllerCliente();
 
-        public frmRegistroCliente(ControllerCliente clientes)
+        public frmRegistroCliente()
         {
-            cliente_handler = clientes;
             InitializeComponent();
         }
 
