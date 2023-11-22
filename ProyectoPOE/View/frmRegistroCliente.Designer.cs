@@ -149,7 +149,7 @@
             txtTelefono.ReadOnly = true;
             txtTelefono.Size = new Size(139, 23);
             txtTelefono.TabIndex = 2;
-            txtTelefono.KeyPress += soloNumeros;
+            txtTelefono.KeyPress += soloNumerosTelefono;
             // 
             // label6
             // 

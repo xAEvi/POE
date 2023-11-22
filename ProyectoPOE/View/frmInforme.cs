@@ -112,12 +112,13 @@ namespace ProyectoPOE.View
             decimal costoMantenimiento = mantenimiento.EsCorrectivo ? 80 : 40;
             lblCostoMantenimiento.Text = costoMantenimiento.ToString();
 
-            decimal total = costoMantenimiento + costoRepuesto + costoServicio;
-            lblSubtotal.Text = total.ToString();
+            decimal subtotal = costoMantenimiento + costoRepuesto + costoServicio;
+            lblSubtotal.Text = subtotal.ToString();
 
-            decimal iva = total * 0.12m;
+            decimal iva = subtotal * 0.12m;
             lblIva.Text = iva.ToString();
 
+            decimal total = subtotal + iva;
             lblTotal.Text = total.ToString();
         }
 

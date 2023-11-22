@@ -122,7 +122,7 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "frmAcerca";
-            Text = "AcercaDe";
+            Text = "Integrantes";
             ResumeLayout(false);
             PerformLayout();
         }
