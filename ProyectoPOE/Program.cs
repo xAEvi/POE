@@ -15,8 +15,8 @@ namespace WinFormsApp1
             ControllerMecanico mecanicos = new ControllerMecanico();
             ControllerMantenimiento mantenimientos = new ControllerMantenimiento();
 
-            Cliente objCliente = new Cliente("Molina", "Xavier", "123", "Pene", "1234");
-            Mecanico objMecanico = new Mecanico("Pene", "De vaca", "123", "General", "Matutina");
+            Cliente objCliente = new Cliente("Molina", "Xavier", "0750920159", "Pene", "0959538700");
+            Mecanico objMecanico = new Mecanico("Duchi", "Walter", "0912559987", "Mecánico General", "Matutina");
 
             clientes.Crear(objCliente);
             mecanicos.Crear(objMecanico);

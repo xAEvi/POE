@@ -11,9 +11,9 @@
             Precio = precio;
         }
 
-        public string ObtenerInformacionRepuesto()
+        public override string ToString()
         {
-            return $"Nombre: {Nombre}, Precio: {Precio:C}";
+            return $"{Nombre} - ${Precio}";
         }
     }
 }

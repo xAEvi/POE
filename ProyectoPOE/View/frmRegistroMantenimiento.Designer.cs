@@ -62,6 +62,7 @@
             dtpFecha = new DateTimePicker();
             label2 = new Label();
             label1 = new Label();
+            btnMostrar = new Button();
             groupBox1.SuspendLayout();
             groupBox5.SuspendLayout();
             repuestosBox.SuspendLayout();
@@ -71,6 +72,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(btnMostrar);
             groupBox1.Controls.Add(cmbCliente);
             groupBox1.Controls.Add(btnCancelar);
             groupBox1.Controls.Add(groupBox5);
@@ -421,6 +423,17 @@
             label1.TabIndex = 0;
             label1.Text = "Id:";
             // 
+            // btnMostrar
+            // 
+            btnMostrar.Enabled = false;
+            btnMostrar.Location = new Point(873, 441);
+            btnMostrar.Name = "btnMostrar";
+            btnMostrar.Size = new Size(139, 24);
+            btnMostrar.TabIndex = 27;
+            btnMostrar.Text = "Mostrar Factura";
+            btnMostrar.UseVisualStyleBackColor = true;
+            btnMostrar.Click += btnMostrar_Click;
+            // 
             // frmRegistroMantenimiento
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -477,5 +490,6 @@
         private RadioButton rdbCorrectivo;
         private Button btnCancelar;
         private ComboBox cmbCliente;
+        private Button btnMostrar;
     }
 }

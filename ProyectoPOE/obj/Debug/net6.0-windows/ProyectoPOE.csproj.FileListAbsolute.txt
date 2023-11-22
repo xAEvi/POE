@@ -61,3 +61,4 @@ C:\Users\Usuario\Source\Repos\POE\ProyectoPOE\obj\Debug\net6.0-windows\refint\Pr
 C:\Users\Usuario\Source\Repos\POE\ProyectoPOE\obj\Debug\net6.0-windows\ProyectoPOE.pdb
 C:\Users\Usuario\Source\Repos\POE\ProyectoPOE\obj\Debug\net6.0-windows\ProyectoPOE.genruntimeconfig.cache
 C:\Users\Usuario\Source\Repos\POE\ProyectoPOE\obj\Debug\net6.0-windows\ref\ProyectoPOE.dll
+C:\Users\xAEvi\OneDrive - Universidad de Guayaquil\5to Semestre\Programación Orientado a Eventos\Primer Parcial\Progrmas\ProyectoPOE\ProyectoPOE\obj\Debug\net6.0-windows\ProyectoPOE.View.frmInforme.resources

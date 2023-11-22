@@ -1,5 +1,6 @@
 ﻿using frmMain.Controller;
 using frmMain.Model;
+using ProyectoPOE.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -167,6 +168,7 @@ namespace GestorMantenimientosTaller.View
             btnGuardar.Enabled = false;
             btnBuscar.Enabled = true;
             btnEliminar.Enabled = false;
+            btnMostrar.Enabled = false;
         }
 
 
@@ -224,6 +226,9 @@ namespace GestorMantenimientosTaller.View
                 Servicio[] arregloServicios = serviciosSeleccionados.ToArray();
                 Mantenimiento objmantenimiento = new Mantenimiento(codigo, clienteSeleccionado, mecanicoSeleccionado, fecha, objvehiculo, diagnostico, trabajo, correctivo, arregloRepuestos, arregloServicios);
                 manteniemiento_handler.Crear(objmantenimiento);
+
+                frmInforme nuevoInforme = new frmInforme(objmantenimiento);
+                nuevoInforme.Show();
 
                 banderanuevo = false;
                 btnNuevo.Visible = true;
@@ -319,7 +324,7 @@ namespace GestorMantenimientosTaller.View
                 if (mantenimientoEncontrado.EsCorrectivo)
                 {
                     rdbCorrectivo.Checked = true;
-                    
+
                 }
                 else
                 {
@@ -360,6 +365,7 @@ namespace GestorMantenimientosTaller.View
                 // Botones
                 btnGuardar.Enabled = true;
                 btnEliminar.Enabled = true;
+                btnMostrar.Enabled = true;
             }
             else
             {
@@ -378,6 +384,12 @@ namespace GestorMantenimientosTaller.View
                 ReiniciarFormulario();
                 DeshabilitarCampos();
             }
+        }
+
+        private void btnMostrar_Click(object sender, EventArgs e)
+        {
+            frmInforme informe = new frmInforme(mantenimientoEncontrado);
+            informe.Show();
         }
 
         private void soloNumeros(object sender, KeyPressEventArgs e)
@@ -420,5 +432,7 @@ namespace GestorMantenimientosTaller.View
         {
             repuestosBox.Visible = false;
         }
+
+        
     }
 }
