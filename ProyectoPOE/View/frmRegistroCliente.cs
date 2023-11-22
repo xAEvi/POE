@@ -177,6 +177,23 @@ namespace GestorMantenimientosTaller.View
             }
         }
 
+        private void soloNumerosTelefono(object sender, KeyPressEventArgs e)
+        {
+            {
+                // Permitir solo números y teclas de control (por ejemplo, retroceso)
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+
+                // Limitar a 10 caracteres
+                if (txtTelefono.Text.Length >= 10 && e.KeyChar != (char)Keys.Back)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
         private void soloAlfabeto(object sender, KeyPressEventArgs e)
         {
             // Verificar si el carácter es una letra, un espacio o no es un control (como la tecla de retroceso)
