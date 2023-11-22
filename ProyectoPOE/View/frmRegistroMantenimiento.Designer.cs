@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            cmbCliente = new ComboBox();
             btnCancelar = new Button();
             groupBox5 = new GroupBox();
             rdbPreventivo = new RadioButton();
@@ -61,7 +62,6 @@
             dtpFecha = new DateTimePicker();
             label2 = new Label();
             label1 = new Label();
-            cmbCliente = new ComboBox();
             groupBox1.SuspendLayout();
             groupBox5.SuspendLayout();
             repuestosBox.SuspendLayout();
@@ -99,6 +99,15 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Registro de mantenimiento";
             // 
+            // cmbCliente
+            // 
+            cmbCliente.Enabled = false;
+            cmbCliente.FormattingEnabled = true;
+            cmbCliente.Location = new Point(108, 71);
+            cmbCliente.Name = "cmbCliente";
+            cmbCliente.Size = new Size(268, 23);
+            cmbCliente.TabIndex = 26;
+            // 
             // btnCancelar
             // 
             btnCancelar.Location = new Point(323, 441);
@@ -116,7 +125,7 @@
             groupBox5.Controls.Add(rdbCorrectivo);
             groupBox5.Location = new Point(683, 218);
             groupBox5.Name = "groupBox5";
-            groupBox5.Size = new Size(311, 41);
+            groupBox5.Size = new Size(329, 41);
             groupBox5.TabIndex = 24;
             groupBox5.TabStop = false;
             groupBox5.Text = "Tipo de Mantenimiento";
@@ -124,6 +133,7 @@
             // rdbPreventivo
             // 
             rdbPreventivo.AutoSize = true;
+            rdbPreventivo.Enabled = false;
             rdbPreventivo.Location = new Point(92, 16);
             rdbPreventivo.Name = "rdbPreventivo";
             rdbPreventivo.Size = new Size(81, 19);
@@ -136,6 +146,7 @@
             // rdbCorrectivo
             // 
             rdbCorrectivo.AutoSize = true;
+            rdbCorrectivo.Enabled = false;
             rdbCorrectivo.Location = new Point(6, 16);
             rdbCorrectivo.Name = "rdbCorrectivo";
             rdbCorrectivo.Size = new Size(80, 19);
@@ -192,7 +203,7 @@
             repuestosBox.Controls.Add(clbRepuestos);
             repuestosBox.Location = new Point(672, 265);
             repuestosBox.Name = "repuestosBox";
-            repuestosBox.Size = new Size(322, 139);
+            repuestosBox.Size = new Size(340, 139);
             repuestosBox.TabIndex = 17;
             repuestosBox.TabStop = false;
             repuestosBox.Text = "Repuestos:";
@@ -201,11 +212,12 @@
             // clbRepuestos
             // 
             clbRepuestos.CheckOnClick = true;
+            clbRepuestos.Enabled = false;
             clbRepuestos.FormattingEnabled = true;
             clbRepuestos.Location = new Point(11, 27);
             clbRepuestos.MultiColumn = true;
             clbRepuestos.Name = "clbRepuestos";
-            clbRepuestos.Size = new Size(293, 94);
+            clbRepuestos.Size = new Size(310, 94);
             clbRepuestos.TabIndex = 0;
             // 
             // groupBox3
@@ -221,6 +233,7 @@
             // clbServicios
             // 
             clbServicios.CheckOnClick = true;
+            clbServicios.Enabled = false;
             clbServicios.FormattingEnabled = true;
             clbServicios.Location = new Point(10, 27);
             clbServicios.Name = "clbServicios";
@@ -231,6 +244,7 @@
             // 
             rtbTrabajo.Location = new Point(105, 257);
             rtbTrabajo.Name = "rtbTrabajo";
+            rtbTrabajo.ReadOnly = true;
             rtbTrabajo.Size = new Size(400, 147);
             rtbTrabajo.TabIndex = 13;
             rtbTrabajo.Text = "";
@@ -248,6 +262,7 @@
             // 
             txtDiagnostico.Location = new Point(105, 218);
             txtDiagnostico.Name = "txtDiagnostico";
+            txtDiagnostico.ReadOnly = true;
             txtDiagnostico.Size = new Size(400, 23);
             txtDiagnostico.TabIndex = 11;
             // 
@@ -272,7 +287,7 @@
             groupBox2.Controls.Add(label5);
             groupBox2.Location = new Point(52, 114);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(942, 83);
+            groupBox2.Size = new Size(960, 83);
             groupBox2.TabIndex = 8;
             groupBox2.TabStop = false;
             groupBox2.Text = "Datos del vehículo:";
@@ -281,6 +296,7 @@
             // 
             txtTipo.Location = new Point(762, 36);
             txtTipo.Name = "txtTipo";
+            txtTipo.ReadOnly = true;
             txtTipo.Size = new Size(91, 23);
             txtTipo.TabIndex = 10;
             // 
@@ -288,13 +304,16 @@
             // 
             txtAño.Location = new Point(531, 36);
             txtAño.Name = "txtAño";
+            txtAño.ReadOnly = true;
             txtAño.Size = new Size(91, 23);
             txtAño.TabIndex = 9;
+            txtAño.KeyPress += soloNumeros;
             // 
             // txtMarca
             // 
             txtMarca.Location = new Point(314, 36);
             txtMarca.Name = "txtMarca";
+            txtMarca.ReadOnly = true;
             txtMarca.Size = new Size(91, 23);
             txtMarca.TabIndex = 5;
             // 
@@ -302,6 +321,7 @@
             // 
             txtPlaca.Location = new Point(101, 36);
             txtPlaca.Name = "txtPlaca";
+            txtPlaca.ReadOnly = true;
             txtPlaca.Size = new Size(91, 23);
             txtPlaca.TabIndex = 4;
             // 
@@ -343,6 +363,7 @@
             // 
             // cmbMecanico
             // 
+            cmbMecanico.Enabled = false;
             cmbMecanico.FormattingEnabled = true;
             cmbMecanico.Location = new Point(459, 73);
             cmbMecanico.Name = "cmbMecanico";
@@ -376,6 +397,7 @@
             // 
             // dtpFecha
             // 
+            dtpFecha.Enabled = false;
             dtpFecha.Location = new Point(382, 31);
             dtpFecha.Name = "dtpFecha";
             dtpFecha.Size = new Size(219, 23);
@@ -398,14 +420,6 @@
             label1.Size = new Size(20, 15);
             label1.TabIndex = 0;
             label1.Text = "Id:";
-            // 
-            // cmbCliente
-            // 
-            cmbCliente.FormattingEnabled = true;
-            cmbCliente.Location = new Point(108, 71);
-            cmbCliente.Name = "cmbCliente";
-            cmbCliente.Size = new Size(268, 23);
-            cmbCliente.TabIndex = 26;
             // 
             // frmRegistroMantenimiento
             // 

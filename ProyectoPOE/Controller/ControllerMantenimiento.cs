@@ -5,7 +5,7 @@ namespace frmMain.Controller
 {
     public class ControllerMantenimiento : ICRUDController<Mantenimiento>
     {
-        private List<Mantenimiento> ListaMantenimientos;
+        public List<Mantenimiento> ListaMantenimientos;
         public ControllerMantenimiento()
         {
             ListaMantenimientos = new List<Mantenimiento>();

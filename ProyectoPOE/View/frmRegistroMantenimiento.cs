@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,44 +18,72 @@ namespace GestorMantenimientosTaller.View
     {
         ControllerCliente clientes;
         ControllerMecanico mecanicos;
-        ControllerMantenimiento mantenimientos;
         bool banderanuevo = false;
-        Mantenimiento clienteEncontrado;
+        Mantenimiento mantenimientoEncontrado;
         ControllerMantenimiento manteniemiento_handler;
         public frmRegistroMantenimiento(ControllerCliente clientes, ControllerMecanico mecanicos, ControllerMantenimiento mantenimientos)
         {
             this.clientes = clientes;
             this.mecanicos = mecanicos;
-            this.mantenimientos = mantenimientos;
-            
+            manteniemiento_handler = mantenimientos;
+
             InitializeComponent();
 
             CargarClientes();
             CargarMecanicos();
-            // CargarServicios();
-            // CargarRespuestos();
+            CargarServicios();
+            CargarRespuestos();
         }
 
         private void frmRegistroMantenimiento_Load(object sender, EventArgs e)
         {
 
         }
+        private Servicio[] ArregloServicios()
+        {
+            Servicio[] servicios = new Servicio[5];
+
+            servicios[0] = new Servicio("Lavado", 5.50m);
+            servicios[1] = new Servicio("Alineación", 7.20m);
+            servicios[2] = new Servicio("Cambio de aceite", 6.50m);
+            servicios[3] = new Servicio("Aspirado", 3.50m);
+            servicios[4] = new Servicio("Calibración", 13.50m);
+            return servicios;
+        }
+
+        private Repuesto[] ArregloRepuestos()
+        {
+            Repuesto[] repuestos = new Repuesto[10];
+            repuestos[0] = new Repuesto("Pastillas de freno", 28.17m);
+            repuestos[1] = new Repuesto("Disco de freno", 32.73m);
+            repuestos[2] = new Repuesto("Batería de arranque", 115.09m);
+            repuestos[3] = new Repuesto("Espejo retrovisor", 40.15m);
+            repuestos[4] = new Repuesto("Compresor", 264.31m);
+            repuestos[5] = new Repuesto("Cárter de aceite", 52.42m);
+            repuestos[6] = new Repuesto("Cilindro de cierre", 67.95m);
+            repuestos[7] = new Repuesto("Kit de Amortiguadores", 1009.76m);
+            repuestos[8] = new Repuesto("Interruptor de elevalunas", 12.45m);
+            repuestos[9] = new Repuesto("Aceite de motor", 14.79m);
+            return repuestos;
+        }
 
         private void CargarServicios()
         {
-            // Cambiar esto por un arreglo de objetos Servicio
-            // clbServicios.Items.AddRange(new object[] { "Lavado", "Alineación", "Servicio 3", "Servicio 4", "Servicio 5" });
+            Servicio[] servicios = ArregloServicios();
+            clbServicios.Items.AddRange(servicios);
+            clbServicios.DisplayMember = "Nombre";
         }
 
         private void CargarRespuestos()
         {
-            // Cambiar esto por un arreglo de objetos Respuestos
-            // clbRepuestos.Items.AddRange(new object[] { "Repuesto 1", "Repuesto 2", "Repuesto 3", "Repuesto 4", "Repuesto 5", "Repuesto 6", "Repuesto 7", "Repuesto 8", "Repuesto 9", "Repuesto 10" });
+            Repuesto[] repuestos = ArregloRepuestos();
+            clbRepuestos.Items.AddRange(repuestos);
+            clbRepuestos.DisplayMember = "Nombre";
         }
 
         private void CargarClientes()
         {
-            foreach(Cliente cliente in clientes.GetClientes())
+            foreach (Cliente cliente in clientes.GetClientes())
             {
                 cmbCliente.Items.Add(cliente);
             }
@@ -70,35 +99,66 @@ namespace GestorMantenimientosTaller.View
 
         private void ReiniciarFormulario()
         {
-            /* Ejemplo (Reiniciar otros elementos como debe ir)
-            txtNombre.Text = string.Empty;
-            txtApellido.Text = string.Empty;
-            txtdireccion.Text = string.Empty;
-            txtCedula.Text = string.Empty;
-            txtTelefono.Text = string.Empty;
-            */
+
+            txtId.Text = string.Empty;
+            dtpFecha.Text = string.Empty;
+            cmbCliente.Text = string.Empty;
+            cmbMecanico.Text = string.Empty;
+            txtPlaca.Text = string.Empty;
+            txtMarca.Text = string.Empty;
+            txtAño.Text = string.Empty;
+            txtTipo.Text = string.Empty;
+            txtDiagnostico.Text = string.Empty;
+            rtbTrabajo.Text = string.Empty;
+            rdbCorrectivo.Checked = false;
+            rdbPreventivo.Checked = false;
+            repuestosBox.Visible = false;
+
+            for (int i = 0; i < clbServicios.Items.Count; i++)
+            {
+                clbServicios.SetItemChecked(i, false);
+            }
+
+            for (int i = 0; i < clbRepuestos.Items.Count; i++)
+            {
+                clbRepuestos.SetItemChecked(i, false);
+            }
         }
 
         private void DeshabilitarCampos()
         {
-            /* Ejemplo (Solo debe quedar codigo para escribir), listas y otras cosas deben quedar enabled en false
-            txtNombre.ReadOnly = true;
-            txtApellido.ReadOnly = true;
-            txtdireccion.ReadOnly = true;
-            txtCedula.ReadOnly = false;
-            txtTelefono.ReadOnly = true;
-            */
+            txtId.ReadOnly = false;
+            dtpFecha.Enabled = false;
+            cmbCliente.Enabled = false;
+            cmbMecanico.Enabled = false;
+            txtPlaca.ReadOnly = true;
+            txtMarca.ReadOnly = true;
+            txtAño.ReadOnly = true;
+            txtTipo.ReadOnly = true;
+            txtDiagnostico.ReadOnly = true;
+            rtbTrabajo.ReadOnly = true;
+            rdbCorrectivo.Enabled = false;
+            rdbPreventivo.Enabled = false;
+            clbRepuestos.Enabled = false;
+            clbServicios.Enabled = false;
         }
 
         private void HabilitarCampos()
         {
-            /* Ejemplo (Habilitar otros elementos con enabled)
-            txtNombre.ReadOnly = false;
-            txtApellido.ReadOnly = false;
-            txtdireccion.ReadOnly = false;
-            txtCedula.ReadOnly = false;
-            txtTelefono.ReadOnly = false;
-            */
+            txtId.ReadOnly = false;
+            dtpFecha.Enabled = true;
+            cmbCliente.Enabled = true;
+            cmbMecanico.Enabled = true;
+            txtPlaca.ReadOnly = false;
+            txtMarca.ReadOnly = false;
+            txtAño.ReadOnly = false;
+            txtTipo.ReadOnly = false;
+            txtDiagnostico.ReadOnly = false;
+            rtbTrabajo.ReadOnly = false;
+            rdbCorrectivo.Enabled = true;
+            rdbPreventivo.Enabled = true;
+            clbRepuestos.Enabled = true;
+            clbServicios.Enabled = true;
         }
 
         private void ResetearBotones()
@@ -112,17 +172,58 @@ namespace GestorMantenimientosTaller.View
 
         private void Guardar_Click(object sender, EventArgs e)
         {
+            if (cmbCliente.SelectedItem == null ||
+                cmbMecanico.SelectedItem == null ||
+                string.IsNullOrWhiteSpace(txtPlaca.Text) ||
+                string.IsNullOrWhiteSpace(txtMarca.Text) ||
+                string.IsNullOrWhiteSpace(txtAño.Text) ||
+                string.IsNullOrWhiteSpace(txtTipo.Text) ||
+                string.IsNullOrWhiteSpace(txtDiagnostico.Text) ||
+                string.IsNullOrWhiteSpace(rtbTrabajo.Text) ||
+                rdbCorrectivo == null ||
+                rdbPreventivo == null ||
+                clbRepuestos == null ||
+                clbServicios == null ||
+                dtpFecha.Value == DateTimePicker.MinimumDateTime)
+            {
+                MessageBox.Show("Por favor, complete todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (banderanuevo)
             {
-                /* Ejemplo
-                string nombres = txtNombre.Text;
-                string apellidos = txtApellido.Text;
-                string direccion = txtdireccion.Text;
-                string cedula = txtCedula.Text;
-                string telefono = txtTelefono.Text;
-                Cliente objCliente = new Cliente(apellidos, nombres, cedula, direccion, telefono);
-                cliente_handler.Crear(objCliente);
-                */
+
+                string codigo = txtId.Text;
+                Cliente clienteSeleccionado = (Cliente)cmbCliente.SelectedItem;
+                Mecanico mecanicoSeleccionado = (Mecanico)cmbMecanico.SelectedItem;
+                DateTime fecha = dtpFecha.Value;
+                string placa = txtPlaca.Text;
+                string marca = txtMarca.Text;
+                string ano = txtAño.Text;
+                string tipo = txtTipo.Text;
+                Vehiculo objvehiculo = new Vehiculo(placa, marca, ano, tipo);
+                string diagnostico = txtDiagnostico.Text;
+                string trabajo = rtbTrabajo.Text;
+                bool correctivo = false;
+                if (rdbCorrectivo.Checked)
+                {
+                    correctivo = true;
+                }
+                List<Repuesto> repuestosSeleccionados = new List<Repuesto>();
+
+                foreach (Repuesto repuesto in clbRepuestos.CheckedItems)
+                {
+                    repuestosSeleccionados.Add(repuesto);
+                }
+                Repuesto[] arregloRepuestos = repuestosSeleccionados.ToArray();
+
+                List<Servicio> serviciosSeleccionados = new List<Servicio>();
+                foreach (Servicio servicio in clbServicios.CheckedItems)
+                {
+                    serviciosSeleccionados.Add(servicio);
+                }
+                Servicio[] arregloServicios = serviciosSeleccionados.ToArray();
+                Mantenimiento objmantenimiento = new Mantenimiento(codigo, clienteSeleccionado, mecanicoSeleccionado, fecha, objvehiculo, diagnostico, trabajo, correctivo, arregloRepuestos, arregloServicios);
+                manteniemiento_handler.Crear(objmantenimiento);
 
                 banderanuevo = false;
                 btnNuevo.Visible = true;
@@ -130,16 +231,38 @@ namespace GestorMantenimientosTaller.View
             }
             else
             {
-                /* Ejemplo
-                string nombres = txtNombre.Text;
-                string apellidos = txtApellido.Text;
-                string direccion = txtdireccion.Text;
-                string cedula = txtCedula.Text;
-                string telefono = txtTelefono.Text;
-                Cliente clienteActualizado = new Cliente(apellidos, nombres, cedula, direccion, telefono);
+                string codigo = txtId.Text;
+                Cliente clienteSeleccionado = (Cliente)cmbCliente.SelectedItem;
+                Mecanico mecanicoSeleccionado = (Mecanico)cmbMecanico.SelectedItem;
+                DateTime fecha = dtpFecha.Value;
+                string placa = txtPlaca.Text;
+                string marca = txtMarca.Text;
+                string ano = txtAño.Text;
+                string tipo = txtTipo.Text;
+                Vehiculo vehiculoActualizado = new Vehiculo(placa, marca, ano, tipo);
+                string diagnostico = txtDiagnostico.Text;
+                string trabajo = rtbTrabajo.Text;
+                bool correctivo = false;
+                if (rdbCorrectivo.Checked)
+                {
+                    correctivo = true;
+                }
+                List<Repuesto> repuestosActualizados = new List<Repuesto>();
 
-                cliente_handler.Actualizar(clienteEncontrado.Cedula, clienteActualizado);
-                */
+                foreach (Repuesto repuesto in clbRepuestos.CheckedItems)
+                {
+                    repuestosActualizados.Add(repuesto);
+                }
+                Repuesto[] arregloRepuestosAct = repuestosActualizados.ToArray();
+
+                List<Servicio> serviciosActualizados = new List<Servicio>();
+                foreach (Servicio servicio in clbServicios.CheckedItems)
+                {
+                    serviciosActualizados.Add(servicio);
+                }
+                Servicio[] arregloServiciosAct = serviciosActualizados.ToArray();
+                Mantenimiento mantenimientoActualizado = new Mantenimiento(codigo, clienteSeleccionado, mecanicoSeleccionado, fecha, vehiculoActualizado, diagnostico, trabajo, correctivo, arregloRepuestosAct, arregloServiciosAct);
+                manteniemiento_handler.Actualizar(codigo, mantenimientoActualizado);
             }
 
             DeshabilitarCampos();
@@ -160,29 +283,77 @@ namespace GestorMantenimientosTaller.View
             btnGuardar.Enabled = true;
             btnBuscar.Enabled = false;
             btnEliminar.Enabled = false;
-
             banderanuevo = true;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            /*
-            string cedula = txtCedula.Text;
+            string codigo = txtId.Text;
+            mantenimientoEncontrado = manteniemiento_handler.Leer(codigo);
 
-            clienteEncontrado = cliente_handler.Leer(cedula);
-            */
-
-            if (clienteEncontrado != null)
+            if (mantenimientoEncontrado != null)
             {
-                HabilitarCampos();
+                // Limpiar selecciones anteriores
+                for (int i = 0; i < clbServicios.Items.Count; i++)
+                {
+                    clbServicios.SetItemChecked(i, false);
+                }
 
-                /*
-                txtTelefono.Text = clienteEncontrado.Telefono;
-                txtdireccion.Text = clienteEncontrado.Direccion;
-                txtApellido.Text = clienteEncontrado.Apellidos;
-                txtNombre.Text = clienteEncontrado.Nombres;
-                txtCedula.Text = clienteEncontrado.Cedula;
-                */
+                for (int i = 0; i < clbRepuestos.Items.Count; i++)
+                {
+                    clbRepuestos.SetItemChecked(i, false);
+                }
+
+                HabilitarCampos();
+                txtId.Text = mantenimientoEncontrado.Codigo;
+                dtpFecha.Text = mantenimientoEncontrado.FechaMant.ToString();
+                cmbCliente.Text = mantenimientoEncontrado.Cliente.ToString();
+                cmbMecanico.Text = mantenimientoEncontrado.Mecanico.ToString();
+                txtPlaca.Text = mantenimientoEncontrado.Vehiculo.Placa;
+                txtMarca.Text = mantenimientoEncontrado.Vehiculo.Marca;
+                txtAño.Text = mantenimientoEncontrado.Vehiculo.AnoFabricacion;
+                txtTipo.Text = mantenimientoEncontrado.Vehiculo.Tipo;
+                txtDiagnostico.Text = mantenimientoEncontrado.Diagnostico;
+                rtbTrabajo.Text = mantenimientoEncontrado.Trabajo;
+
+                if (mantenimientoEncontrado.EsCorrectivo)
+                {
+                    rdbCorrectivo.Checked = true;
+                    
+                }
+                else
+                {
+                    rdbPreventivo.Checked = true;
+                }
+
+                // Marcar los servicios seleccionados
+                foreach (Servicio servicio in mantenimientoEncontrado.Servicios)
+                {
+                    int index = clbServicios.Items.IndexOf(servicio);
+                    if (index != -1)
+                    {
+                        clbServicios.SetItemChecked(index, true);
+                    }
+                }
+
+                // Marcar los repuestos seleccionados (solo si es correctivo)
+                if (mantenimientoEncontrado.EsCorrectivo)
+                {
+                    repuestosBox.Visible = true;
+
+                    foreach (Repuesto repuesto in mantenimientoEncontrado.Repuestos)
+                    {
+                        int index = clbRepuestos.Items.IndexOf(repuesto);
+                        if (index != -1)
+                        {
+                            clbRepuestos.SetItemChecked(index, true);
+                        }
+                    }
+                }
+                else
+                {
+                    repuestosBox.Visible = false;
+                }
 
                 banderanuevo = false;
 
@@ -192,7 +363,7 @@ namespace GestorMantenimientosTaller.View
             }
             else
             {
-                MessageBox.Show("Cliente no encontrado.");
+                MessageBox.Show("Mantenimiento no encontrado.");
             }
         }
 
@@ -200,11 +371,9 @@ namespace GestorMantenimientosTaller.View
         {
             if (MessageBox.Show("¿Desea eliminar este manteniemiento?", "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                /*
-                string cedula = txtCedula.Text;
 
-                cliente_handler.Eliminar(cedula);
-                */
+                manteniemiento_handler.Eliminar(mantenimientoEncontrado.Codigo);
+
                 ResetearBotones();
                 ReiniciarFormulario();
                 DeshabilitarCampos();
